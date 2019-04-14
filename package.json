@@ -19,6 +19,8 @@
   "dependencies": {
     "flatten-line-tree": "git+https://github.com/Evelios/flatten-line-tree.git",
     "new-array": "^1.0.0",
-    "optimize-paths": "git+https://github.com/Evelios/optimize-path.git"
+    "optimize-paths": "git+https://github.com/Evelios/optimize-path.git",
+    "polygon-crosshatching": "git+https://github.com/Evelios/polygon-crosshatching.git",
+    "simplex-noise": "^2.4.0"
   }
 }

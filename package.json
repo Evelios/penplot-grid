@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Evelios/penplot-grid/issues"
   },
-  "homepage": "https://github.com/Evelios/penplot-grid#readme"
+  "homepage": "https://github.com/Evelios/penplot-grid#readme",
+  "dependencies": {
+    "flatten-line-tree": "git+https://github.com/Evelios/flatten-line-tree.git",
+    "new-array": "^1.0.0",
+    "optimize-paths": "git+https://github.com/Evelios/optimize-path.git"
+  }
 }

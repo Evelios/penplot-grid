@@ -1,0 +1,19 @@
+{
+  "name": "penplot-grid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "penplot-grid.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Evelios/penplot-grid.git"
+  },
+  "author": "Thomas Waters",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Evelios/penplot-grid/issues"
+  },
+  "homepage": "https://github.com/Evelios/penplot-grid#readme"
+}

@@ -6,17 +6,17 @@ import flattenLineTree from 'flatten-line-tree';
 import optimizePaths from 'optimize-paths';
 import polygonCrosshatching from 'polygon-crosshatching';
 import SimplexNoise from 'simplex-noise';
-import { grid } from './grid'
+import { grid, grid2 } from './grid'
 
 export const orientation = Orientation.LANDSCAPE;
 export const dimensions = PaperSize.LETTER;
 
-export default function createPlot (context, dimensions) {
-  console.log(grid);
-  const margin        = 2;
+export default function createPlot(context, dimensions) {
+  const margin       = 2;
   const cell_size     = 1;
-  const min_padding   = 0.1;
   const pen_width     = 0.02;
+  const grid_count    = [175, 3];
+  const min_padding   = 10 * pen_width;
   const min_spacing   = 1 * pen_width;
   const simplex       = new SimplexNoise();
 
@@ -26,11 +26,11 @@ export default function createPlot (context, dimensions) {
   }
 
   const crosshatch = (pos, dim) => {
-    const redistribute = x => Math.pow(x, 0.5);
+    const redistribute = x => Math.pow(x, 3);
     const noise_ammount = (noise(pos) + 1) / 2;
     const polygon = box(pos, dim);
     const angle = noise_ammount * 2*Math.PI;
-    const max_spacing = min_spacing + 20 * min_spacing * noise_ammount;
+    const max_spacing = min_spacing + 100 * min_spacing * noise_ammount;
     return polygonCrosshatching(
       polygon,
       angle,
@@ -40,13 +40,21 @@ export default function createPlot (context, dimensions) {
     );
   }
 
-  const lines = flattenLineTree(grid({
+  const lines = flattenLineTree(grid2({
+    grid_count,
     dimensions,
     margin,
-    cell_size,
-    min_padding,
+    padding   : min_padding,
     algorithm : crosshatch
   }));
+
+  // const lines = flattenLineTree(grid({
+    // dimensions,
+    // margin,
+    // cell_size,
+    // min_padding,
+    // algorithm : crosshatch
+  // }));
 
   return {
     draw,
